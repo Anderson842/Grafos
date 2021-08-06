@@ -1,0 +1,48 @@
+1.
+
+ El algoritmo Dijkstra con cubos dobles y cubos Aproximados
+Una mejora del algoritmo consiste en mantener los nodos etiquetados en una
+estructura de datos de forma que se encuentre ordenador por sus etiquetas de
+distancia.
+Una estructura de datos formada por cubos (buckets) es un ejemplo de tales
+estructuras.
+El cubo k almacena todos los nodos etiquetados temporalmente cuyas
+etiquetas de distancia están dentro de un cierto rango. Los nodos contenidos
+en un cubo pueden almacenarse en una lista doblemente enlazada. Una lista
+doblemente enlazada únicamente requiere un tiempo O(1) para completar cada
+una de las operaciones para actualizar una distancia en la estructura de cubos.
+Entre estas operaciones están el comprobar si un cubo está vacío, añadir un
+elemento a un cubo y borrar un elemento de un cubo.
+En la implementación con cubos aproximados del algoritmo Dijkstra, el cubo i
+contiene aquellos nodos etiquetados temporalmente cuyas etiquetas de
+distancia están dentro del intervalos [i · b, (i + 1) · (b-1)], donde b es una
+constante que se puede elegir.
+Aquí, el término de aproximados se refiere al hecho de que las etiquetas de
+distancia de los nodos contenidos en un mismo cubo no son exactamente
+iguales, como ocurría en el caso de la implementación básica con cubos, sino
+que están dentro de un determinado rango de valores. Cada cubo está
+implementado mediante una cola FIFO (first in first, out).
+
+
+2.
+El algoritmo de Prim construye un árbol de expansión mínimo para el gráfico, 
+que es un árbol que conecta todos los nodos del gráfico y tiene el menor costo 
+total entre todos los árboles que conectan todos los nodos. Sin embargo, la 
+longitud de una ruta entre dos nodos en el MST puede no ser la ruta más corta 
+entre esos dos nodos en el gráfico original. Los MST son útiles, por ejemplo, 
+si desea cablear físicamente los nodos en el gráfico para proporcionarles 
+electricidad al menor costo total. No importa que la longitud de la ruta entre 
+dos nodos no sea óptima, ya que lo único que le importa es el hecho de que están conectados.
+
+El algoritmo de Dijkstra construye un árbol de la ruta más corta a partir de algún 
+nodo fuente. Un árbol de ruta más corto es un árbol que conecta todos los nodos en 
+el gráfico al nodo de origen y tiene la propiedad de que se minimiza la longitud de 
+cualquier ruta desde el nodo de origen a cualquier otro nodo en el gráfico. Esto es 
+útil, por ejemplo, si desea construir una red de carreteras que la haga lo más 
+eficiente posible para que todos puedan llegar a algún hito importante importante. 
+Sin embargo, no se garantiza que el árbol de ruta más corto sea un árbol de expansión 
+mínimo, y el costo de construir dicho árbol podría ser mucho mayor que el costo de un MST.
+
+Otra diferencia importante se refiere a qué tipos de gráficos funcionan los algoritmos.
+ El algoritmo de Prim funciona solo en gráficos no dirigidos, ya que el concepto de un
+ MST asume que los gráficos son intrínsecamente no dirigidos. 
